@@ -1,0 +1,43 @@
+@use "../settings/variables";
+
+@mixin light-theme {
+  --text-color: #{variables.$dark-color};
+  --color-dark: #{variables.$dark-color};
+  --bg-body: #{variables.$background-light};
+  --bg-tasks: #{variables.$background-task-light};
+  --bg-item: #{variables.$background-item-light};
+  --border-item: #{variables.$border-item-light};
+  --color-item-title: #{variables.$color-item-title-light};
+  --color-input: #{variables.$background-input-light};
+  --bg-toggle: #{variables.$bg-toggle-light};
+  --bg-border: #{variables.$border-toggle-light};
+}
+
+@mixin dark-theme {
+  --text-color: #{variables.$white-color};
+  --color-dark: #{variables.$dark-color};
+  --bg-body: #{variables.$background-dark};
+  --bg-tasks: #{variables.$background-task-dark};
+  --bg-item: #{variables.$background-item-dark};
+  --border-item: #{variables.$border-item-dark};
+  --color-item-title: #{variables.$color-item-title-dark};
+  --color-input: #{variables.$background-input-dark};
+  --bg-toggle: #{variables.$bg-toggle-dark};
+  --bg-border: #{variables.$border-toggle-dark};
+}
+
+:root {
+  @include light-theme;
+
+  &.dark {
+    @include dark-theme;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+
+    &.light {
+      @include light-theme;
+    }
+  }
+}

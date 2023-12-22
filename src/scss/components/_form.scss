@@ -1,0 +1,72 @@
+@use "../settings/variables";
+@use "../tools/mixins";
+
+.form {
+  width: 55rem;
+  padding: 3rem;
+  background-color: var(--bg-tasks);
+  box-shadow: 0.3rem 0.3rem 1.2rem -0.3rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  /*   transform: scale(0.5); */
+  transition: opacity 300ms ease-in-out, ease-in-out,
+    transform 300ms ease-in-out;
+
+  &__form-control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  &__form-control-label {
+    font-size: 1.6rem;
+    padding: 0.8rem 0;
+    font-weight: normal;
+    color: var(--color-item-title);
+  }
+  &__form-control-input {
+    padding: 1.5rem;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    background-color: var(--color-input);
+  }
+  &__form-control-area {
+    max-width: 100%;
+    max-height: 25rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    background-color: var(--color-input);
+  }
+  &__form-group-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+  }
+  &__form-add,
+  &__form-cancel {
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  &__form-add {
+    background-color: #0960fb;
+    color: #e2eafb;
+  }
+  &__form-cancel {
+    background-color: #e2eafb;
+    color: #0960fb;
+  }
+}
+
+@include mixins.responsive("phone") {
+  .form {
+    width: 98%;
+  }
+}

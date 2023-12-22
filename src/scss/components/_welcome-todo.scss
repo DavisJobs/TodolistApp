@@ -1,0 +1,80 @@
+@use "../settings/variables";
+@use "../tools/mixins";
+
+.welcome-todo {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-tasks);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &__container {
+    width: 80%;
+    background-color: var(--bg-item);
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.5rem 1.4rem -0.4rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 3rem;
+  }
+
+  &__icon {
+    font-size: 5rem;
+    background-color: #0960fb;
+    color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.5rem 1.4rem -0.4rem #89c8ff;
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    color: var(--color-item-title);
+
+    p {
+      font-weight: 400;
+      padding: 1rem 0;
+    }
+
+    span {
+      font-weight: bold;
+      color: #222;
+      color: #0960fb;
+    }
+  }
+  &__subtitle {
+    padding: 0 6rem;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    color: var(--color-item-title);
+  }
+
+  &__btn {
+    padding: 1rem 2.5rem;
+    margin-top: 2.5rem;
+    font-size: 1.6rem;
+    color: #0960fb;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    background-color: #e2eafb;
+    cursor: pointer;
+  }
+}
+
+@include mixins.responsive("phone") {
+  .welcome-todo {
+    &__container {
+      width: 90%;
+    }
+    &__subtitle {
+      padding: 0 2rem;
+    }
+  }
+}

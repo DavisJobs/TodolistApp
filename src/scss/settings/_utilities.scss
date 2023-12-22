@@ -1,0 +1,62 @@
+@use "./colors";
+
+.container {
+  position: relative;
+  max-width: 600px;
+  width: 98%;
+  margin: auto;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: var(--color-item-title);
+}
+
+.hidden {
+  opacity: 0 !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.showForm,
+.showConfirm {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: transform 300ms ease-in-out !important;
+  z-index: 9 !important;
+}
+
+.checkMarked {
+  opacity: 0.1;
+}
+
+.tabActive {
+  color: #0761fa !important;
+}
+.tabActiveSpan {
+  color: #fff;
+  background-color: #0761fa !important;
+}
+
+.show-task {
+  display: flex !important;
+}
+
+.dayNumber {
+  font-size: 4rem;
+}
+
+.d-flex-gap-ai-center {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.d-flex-ai-center {
+  display: flex;
+  align-items: center;
+}

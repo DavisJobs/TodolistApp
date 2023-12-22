@@ -1,0 +1,280 @@
+@use "../settings/variables";
+@use "../tools/mixins";
+
+.todo-list {
+  width: 70rem;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-body);
+
+  &__head {
+    width: 100%;
+    text-align: center;
+    flex: 0.4;
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+    flex: 2;
+  }
+
+  &__heading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+  &__group-heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  &__date {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    h3 {
+      font-size: 2.3rem;
+      color: #fff;
+    }
+  }
+  &__date-now {
+    display: flex;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  &__date-now-day {
+    display: flex;
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  &__create-todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  &__create {
+    display: flex;
+    background-color: var(--color-input);
+    color: var(--text-color);
+    border: 0.1rem solid var(--border-item);
+    gap: 1rem;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+
+    i {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__theme {
+    position: relative;
+    width: 6rem;
+    height: 1rem;
+    background-color: var(--bg-item);
+    padding: 1.6rem;
+    border-color: 0.1rem solid var(--border-item);
+    outline: 0.1rem solid var(--border-item);
+    border-radius: 5rem;
+    transition: all 100ms ease-in-out;
+  }
+  &__theme-toggle {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--bg-toggle);
+    border: 0.1rem solid var(--bg-border);
+    outline: none;
+    top: 0.1rem;
+    left: 0rem;
+    bottom: 0;
+    transition: all 300ms ease-in-out;
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &.activeTheme {
+      transform: translateX(100%);
+    }
+  }
+
+  &__tabs {
+    width: 100%;
+  }
+  &__tabs-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  &__tabs-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.7rem;
+    background-color: transparent;
+    color: #989899;
+
+    &:nth-child(2) {
+      padding-left: 1rem;
+      border-left: 0.1rem solid #989899;
+    }
+    &:nth-child(3) {
+      padding-left: 1rem;
+      border-left: 0.1rem solid #989899;
+    }
+  }
+
+  &__tabs-len-all {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #fff;
+  }
+
+  &__elements-tasks {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-tasks);
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+  }
+
+  &__element-task {
+    padding: 1.5rem;
+    background-color: var(--bg-item);
+    border: 0.1rem solid var(--border-item);
+    border-radius: 0.8rem;
+    box-shadow: 0.3rem 0.3rem 1.2rem -0.3rem rgba(0, 0, 0, 0.1);
+    transition: all 300ms ease;
+    overflow: hidden;
+
+    &.activeCheck {
+      transition: all 300ms ease;
+      opacity: 0.5;
+    }
+  }
+
+  &__element-task-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__element-task-check {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background-color: #0960fb;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border: 0.1rem solid #e5e4e4;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    &.activeCheck {
+      &::after {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 0%;
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        z-index: -1;
+      }
+    }
+  }
+
+  &__element-task-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+  &__element-task-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__element-task-heading-title {
+    font-size: 1.8rem;
+    color: var(--color-item-title);
+  }
+  &__element-task-heading-subtitle {
+    font-size: 1.6rem;
+    color: #adacad;
+  }
+  &__element-task-date {
+    padding: 1rem 0 0 0;
+    border-top: 0.1rem solid var(--border-item);
+    color: #d2d3d2;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__element-task-info-date {
+    display: flex;
+    width: 100%;
+    gap: 0.4rem;
+    justify-content: space-between;
+  }
+
+  &__element-task-group-icons {
+    display: flex;
+    gap: 0.7rem;
+    order: 1;
+  }
+
+  &__element-task-edit,
+  &__element-task-remove {
+    transition: all 300ms ease-in-out;
+    font-size: 1.8rem;
+    color: #9ea09e;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+@include mixins.responsive("tablet") {
+  .todo-list {
+    width: 90%;
+  }
+}
+
+@include mixins.responsive("phone") {
+  .todo-list {
+    width: 100%;
+  }
+}

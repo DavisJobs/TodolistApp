@@ -1,0 +1,41 @@
+@use "../settings/variables";
+
+.modal-confirm {
+  &__content {
+    max-width: 80rem;
+    padding: 2rem;
+    background-color: var(--bg-tasks);
+    border-radius: 0.5rem;
+  }
+  &__title {
+    padding: 1rem 0;
+    font-size: 1.7rem;
+    color: var(--color-item-title);
+  }
+  &__title-task {
+    font-size: 2rem;
+    padding: 1rem 0;
+    color: var(--color-item-title);
+  }
+  &__group-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 2.5rem;
+  }
+  &__confirm,
+  &__cancel {
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  &__confirm {
+    background-color: lightcoral;
+    color: #fff;
+  }
+  &__cancel {
+    background-color: #fff;
+    border: 0.1rem solid #e5e4e4;
+  }
+}
