@@ -24,7 +24,7 @@ Steps for installation
 Step 1:
 
 ```
-git clone www.github.com
+git clone https://github.com/DavisJobs/TodolistApp.git
 ```
 
 Step 2:
