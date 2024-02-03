@@ -47,7 +47,7 @@ http://localhost:5173
 
 <table>
   <tr>
-    <td valign="top"><img src="https://github.com/DavisJobs/TodolistApp/blob/main/public/dark.PNGraw=true" width="500px"></td>
+    <td valign="top"><img src="https://github.com/DavisJobs/TodolistApp/blob/main/public/dark.PNG?raw=true" width="500px"></td>
     <td valign="top"><img src="https://github.com/DavisJobs/TodolistApp/blob/main/public/light.PNG?raw=true" width="500px"></td>
   </tr>
 </table>
